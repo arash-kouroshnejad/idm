@@ -6,7 +6,7 @@ public class Main {
         for (int i = 0; i < 26; i++) {
             System.out.println((char) (i + 97));
         }
-        new MultiThreadCopier(new Sos(), "./a.result", 1).start();
+        new MultiThreadCopier(new Sos(), "./a.result", 16).start();
     }
 
     static class Ss implements SourceReader {
@@ -40,7 +40,7 @@ public class Main {
 
         @Override
         public long size() {
-            return 300;
+            return 30000;
         }
     }
 }

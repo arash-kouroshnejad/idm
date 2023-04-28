@@ -10,7 +10,7 @@ public class FileHandler {
 
     public static void generateEmptyFile(String PathName, long size) {
         try {
-            RandomAccessFile file = new RandomAccessFile(PathName, "rw");
+            RandomAccessFile file = new RandomAccessFile(PathName, "rws");
             file.setLength(size);
             file.close();
         } catch (Exception e) {

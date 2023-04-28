@@ -1,7 +1,7 @@
 package ir.sharif.math.ap2023.hw5.Util;
 
 public abstract class AbstractAgent extends Thread{
-    boolean alive;
+    volatile boolean alive;
     protected final Semaphore lock;
 
     private boolean paused;
@@ -28,7 +28,6 @@ public abstract class AbstractAgent extends Thread{
     private void checkInterruption() {
         if (paused) {
             lock.forceLock();
-            paused = false;
         }
     }
 
@@ -39,6 +38,7 @@ public abstract class AbstractAgent extends Thread{
     }
 
     public void restart() {
+        paused = false;
         lock.forceRelease();
     }
 
