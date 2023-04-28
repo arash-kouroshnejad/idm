@@ -6,7 +6,7 @@ public class Main {
         for (int i = 0; i < 26; i++) {
             System.out.println((char) (i + 97));
         }
-        new MultiThreadCopier(new Sos(), "./a.result", 2).start();
+        new MultiThreadCopier(new Sos(), "./a.result", 1).start();
     }
 
     static class Ss implements SourceReader {
@@ -20,9 +20,9 @@ public class Main {
         public byte read() {
             try {
                 if (offset < 50)
-                    Thread.sleep(10);
+                    Thread.sleep(5);
                 else
-                    Thread.sleep(100);
+                    Thread.sleep(10);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -40,7 +40,7 @@ public class Main {
 
         @Override
         public long size() {
-            return 100;
+            return 300;
         }
     }
 }
